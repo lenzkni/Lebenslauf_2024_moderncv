@@ -1,0 +1,481 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com), 2020-2022 moderncv maintainers (github.com/moderncv).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+\moderncvcolor{blue}                           % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'; for contemporary style use 'cerulean'
+% moderncv themes
+\moderncvstyle[]{classic}                     % style options are 'casual' (default), 'classic', 'banking', 'oldstyle', 'fancy' and 'contemporary'
+                                                   % the 'contemporary' style optionally takes the `qr` (default) or `noqr` options
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% adjust the page margins
+% \usepackage[hmargin=0.5in,vmargin=10pt]{geometry}                  % the 'contemporary' style looks better with reduced margins; uncomment the line below for increased margin
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvheadnamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+%\setlength{\listitemsymbolspace}{10pt}            % set custom spacing between list symbol and text item (influences \cvlistitem and \cvlistdoubleitem)
+
+% the 'contemporary' style allows to append additional elements to the head background; uncomment and customize if needed
+%\def\@moderncvheadBackground{
+%}
+% font loading
+
+% for luatex and xetex, do not use inputenc and fontenc
+% see https://tex.stackexchange.com/a/496643
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{Latin Modern Roman}
+  \setsansfont{Latin Modern Sans}
+  \setmonofont{Latin Modern Mono}
+  \setmathfont{Latin Modern Math}
+
+  % you may also consider Fira Sans Light for a extra modern look
+  %\setsansfont[ItalicFont={Fira Sans Light Italic},%
+  %           BoldFont={Fira Sans},%
+  %           BoldItalicFont={Fira Sans Italic}]%
+  %           {Fira Sans Light}%
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\fi
+
+% document language
+\usepackage[german]{babel}  % FIXME: using spanish breaks moderncv
+
+% personal data
+\name{Lorenz}{Kniep}
+\title{Dipl.-Ing.}                                % optional, remove / comment the line if not wanted
+\born{14. Januar 1985}                                 % optional, remove / comment the line if not wanted
+\address{Belgradstraße 31}{80796 München}{}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{+49~(170)~20~36~438}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+%\phone[fixed]{+2~(345)~678~901}
+% \phone[fax]{+3~(456)~789~012}
+\email{lorenz.kniep@yahoo.de}                               % optional, remove / comment the line if not wanted
+%\homepage{www.johndoe.com}                         % optional, remove / comment the line if not wanted
+
+% Social icons
+%\social[linkedin]{john.doe}                        % optional, remove / comment the line if not wanted
+%\social[xing]{john\_doe}                           % optional, remove / comment the line if not wanted
+
+%\social[github]{jdoe}                              % optional, remove / comment the line if not wanted
+%\social[gitlab]{jdoe}                              % optional, remove / comment the line if not wanted
+%\social[codeberg]{jdoe}                            % optional, remove / comment the line if not wanted
+%\social[bitbucket]{jdoe}                           % optional, remove / comment the line if not wanted
+%\social[stackoverflow]{0000000/johndoe}            % optional, remove / comment the line if not wanted
+
+%\social[skype]{jdoe}                               % optional, remove / comment the line if not wanted
+%\social[orcid]{0000-0000-000-000}                  % optional, remove / comment the line if not wanted
+%\social[researchgate]{jdoe}                        % optional, remove / comment the line if not wanted
+%\social[researcherid]{jdoe}                        % optional, remove / comment the line if not wanted
+%\social[googlescholar]{googlescholarid}            % optional, remove / comment the line if not wanted
+
+%\social[twitter]{ji\_doe}                          % optional, remove / comment the line if not wanted
+%\social[mastodon]{mastodon.social/web/@user}       % optional, remove / comment the line if not wanted
+%\social[telegram]{jdoe}                            % optional, remove / comment the line if not wanted
+%\social[whatsapp]{12345678901}                     % optional, remove / comment the line if not wanted
+%\social[signal]{12345678901}                       % optional, remove / comment the line if not wanted
+%\social[matrix]{@johndoe:matrix.org}               % optional, remove / comment the line if not wanted
+%\social[discord]{jdoe\#0000}                       % optional, remove / comment the line if not wanted
+
+% YouTube links can take several forms, depending on how your account and channel are set up.
+% See https://support.google.com/youtube/answer/6180214 for more information.
+%\social[youtube]{c/jdoeschannel}                   % optional, remove / comment the line if not wanted; Custom URL             - can be shorted by removing 'c/'
+%\social[youtube]{channel/XXXXXX}                   % optional, remove / comment the line if not wanted; Channel URL (ID-based) - can not be shortened
+%\social[youtube]{user/jdoe}                        % optional, remove / comment the line if not wanted;% Legacy username URL    - if jdoe is not already claimed by a Custom URL, can be shortened by removing 'user/'
+
+%\social[twitch]{jdoe}                              % optional, remove / comment the line if not wante%d
+%\social[tiktok]{jdoe}                              % optional, remove / comment the line if not wanted
+%\social[instagram]{jdoe}                           % optional, remove / comment the line if not wanted%
+
+%\social[soundcloud]{jdoe}                          % optional, remove / comment the line if not wanted%
+
+%\social[steam]{jdoe}                               % optional, remove / comment the line if not wanted
+%\social[xbox]{jdoe}                                % optional, remove / comment the line if not wanted
+%\social[playstation]{jdoe}                         % optional, remove / comment the line if not wanted
+%\social[battlenet]{jdoe\#0000}                     % optional, remove / comment the line if not wanted
+%\social[arxiv]{doe\_j\_1}                     % optional, remove / comment the line if not wanted
+%\social[inspire]{0000000}                     % optional, remove / comment the line if not wanted
+
+
+%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][2pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 2pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% bibliography adjustments (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+%\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+% \renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+% \section{Auf einen Blick}
+% \cvitem{BMW}{> 9 Jahre Erfahrung in der Entwicklung}
+% \cvitem{MAN}{> 2 Jahre Erfahrung in der Entwicklung und Inbetriebnahme}
+% \cvitem{Continental}{< 2 Jahre Erfahrung in der Entwicklung}
+
+\section{Berufserfahrung}
+% \subsection{Vocational}
+
+%----- MAN
+\cventry{03/2024 -- heute}{Senior Entwicklungsingenieur}{Bertrandt Ingenieurbüro GmbH}{München}{}{eingesetzt bei \textbf{MAN Truck \& Bus SE} (Engineering E/E Systems Body and Chassis Functions)\newline{}\textbf{Support in der Funktionsentwicklung von Klimatisierungsfunktionen}
+\begin{itemize}
+\item Anforderungserstellung und Dokumentation im Kundensystem.
+\item Aktualisierung und Erstellung von Funktionsspezifikationen.
+\end{itemize}}
+
+%---- Conti
+\cventry{07/2022 -- 02/2024}{Senior Entwicklungsingenieur}{Bertrandt Ingenieurbüro GmbH}{München}{}{eingesetzt bei \textbf{Continental Autonomous Mobility Germany GmbH} (A AM SB CRS GER LAT4)\newline{}\textbf{Entwicklung L2+/L4 autonomes Fahren}
+\begin{itemize}
+  \item Im kleinen Team eigenständige Entwicklung eines KPI-Frameworks zur Auswertung von zwei Softwarekomponenten (Safety Corridor Estimation, Trajectory Plausibility Checker).
+  \item Entwicklungsbegleitende Durchführung von KPI runs und Abstimmung mit den Entwicklerteams bzgl. Verbesserungen an den Softwarekomponenten. 
+  \item Kontinuierliche Verbesserung der Robustheit des KPI-Frameworks inkl. Erstellung von Modultest mit pytest.
+  \item Implementierung einer Lösung zur einfachen Verteilung unter allen Teammietgliedern und Nachverfolgbarkeit des KPI run Pakets.
+  \item Kontinuierliche Auswertung und Analyse der Laufzeit des KPI-Frameworks und Implementierung von Laufzeitverbesserungen.
+  \item Aufbau einer Messdateiendatenbank für die KPI runs.
+  \item Erstellung von Skripten zur automatischen Erkennung von bestimmten Corner Cases (CVF – Cruising Validation Framework).
+  \item Implementierung einer Lösung zum Mergen der KPI-Ergebnisse.
+\end{itemize}
+\textbf{Projektsprache:} Englisch}
+
+%----- BMW
+\cventry{02/2020 -- 06/2022}{Senior Entwicklungsingenieur}{Bertrandt Ingenieurbüro GmbH}{München}{}{eingesetzt bei \textbf{BMW AG} (Fahrwerkselektronik)\newline{}\textbf{Function Owner der Kundenfunktion Assisted Driving View (AD-View)}
+\begin{itemize}
+  \item Problemmanagement, Bearbeitung von Octane Tickets.
+  \item I-Stufen begleitende Inbetriebnahme am Fahrzeug und/oder Teilsystemplatz.
+  \item Testfallerstellung für Standardabsicherung.
+  \item I-Stufen begleitende Regressionstest am Teilsystemplatz.
+  \item Zeitscheiben begleitendes Einfahren von KPIs.
+\end{itemize}
+\textbf{Erfolge:} In Serie bringen der Kundenfunktion auf dem neuen Anzeigeverbund ID8.}
+
+%----- MAN
+\cventry{11/2017 -- 01/2020}{Entwicklungsingenieur}{Bertrandt Ingenieurbüro GmbH}{München}{}{eingesetzt bei \textbf{MAN Truck \& Bus SE} (Engineering E/E Systems Powertrain Functions)
+\begin{itemize}
+  % E4C
+  % AP81 Funktionsentwicklung_E4C_bis_PF_Paket_III
+  % AP86 E4C Serien-Doku
+  % AP103 E4C FUSIKO / TESIKO-Fahrzeugfunktionen_Paket_III
+  \item Anforderungsmanagement für den vollelektrischen Buss (E4C)
+  \begin{itemize}
+    \item Konzepterstellung für verschiedene Kundenfunktion.
+    \item Dokumentation von Kundenfunktionsanforderungen in eASEE.
+    \item Unterstützung bei FUSIKOs / TESIKOs.
+  \end{itemize}
+  % XCW
+  % AP94 Industrialisierung Abbiegehilfe
+  % AP107 Abbieghillfe und Spurchwechselhilfe: Optimierung und
+  \item Serienbefähigung der Kundenfunktionen „Lane Change Warning (LCW)“ und „Turn Collision Warning (TCW)“
+  \begin{itemize}
+    \item Dokumentation der Anforderungen und Spezifikationen in eASEE.
+    \item Überführen des Prototypen Matlab/Simulink Models in die Serienarchitektur.
+    \item Analyse der Laufzeit und Optimierung des Codes.
+    \item Aufbau einer Visualisierung in Matlab/Simulink zur Analyse von Messdaten und resimulierten Messdaten. 
+  \end{itemize}
+  \textbf{Erfolge:} In Serie bringen der Kundenfunktionen Lane Change Support und Turn Assist.
+  % NHMR
+  % AP100 Betreuung NHMR Prototypen (Hoch- & Umrüstung)
+  % AP118(NF) Betreuung NHMR C-Muster Prototypen (Inbetriebnahme & Umrüstung)
+  % AP15 Betreuung NHMR VFF und Serienfahrzeuge (Inbetriebnahme & Umrüstung)
+  \item Inbetriebnahme und Hochrüstung der E/E-Umfänge der neuen Truck Generation (NHMR)
+  \begin{itemize}
+    \item Systematische Inbetriebnahme der E/E-Funktionen.
+    \item Hochrüstung von Steuergeräten.
+    \item Fehleranalyse von E/E-Fehlern und Erstellung von Fehlertickets in Tevis.
+  \end{itemize} 
+  % Tuerfunktionen
+  % AP108 DIO -Funktionsentwicklung  VFF-SOP
+  % AP121 DIO_SW3.9
+  % AP08 DIO_NHMR_bis_Serie
+  \item Betreuung von Türfunktionen (powerWindowProtection, mirrorHeater, centralLocking)
+  \begin{itemize}
+    \item Aktualisierung von Anforderungen und Spezifikationen in eASEE. 
+    \item Durchführung von Reviews.
+    \item Analyse von Fehlertickets und Implementierung von BugFixes inkl. Rückprüfung am Fahrzeug.    
+  \end{itemize} 
+  % Kabinenfunktionen
+  % AP110 Funktionsentwicklung Cabin VFF-SOP
+  % AP123 Funktionsentwicklung_Cabin
+  % AP09 Funktionsentwicklung_Cabin_NHMRSerie
+  \item Function Owner der Kabinenfunktionen (signalHorn, windscreenHeating, centralLubrication, windscreenWiper, elevatingRoofElectrically)
+  \begin{itemize}
+    \item Aktualisierung von Anforderungen und Spezifikationen in eASEE. 
+    \item Durchführung von Reviews.
+    \item Analyse von Fehlertickets und Implementierung von BugFixes inkl. Rückprüfung am Fahrzeug.
+  \end{itemize}
+  % Motorfunktionen
+  % AP92 Funktionsentwicklung Motorfunktionen
+  % AP113 Funktionsentwicklung EE-Antrieb_NHMR_bis_Euro_V_OBDM
+  % (prepDPFrgnrtnAuxState, idleSpeedControl, selectDPFrgnrtnReq, selectDPFrgnrtnProh)
+  \item Betreuung von Motorenfunktionen (DPF Regeneration)
+  \begin{itemize}
+    \item Aktualisierung von Anforderungen und Spezifikationen in eASEE. 
+    \item Durchführung von Reviews.
+    \item Analyse von Fehlertickets, Ggfs. Implementierung von BugFixes inkl. Rückprüfung am Fahrzeug.
+  \end{itemize}
+\end{itemize}}
+
+%----- Sabbatical
+\cventry{05/2017 -- 10/2017}{Sabbatical}{}{}{}{}
+
+%----- MAN
+\cventry{KW36/2015}{Entwicklungsingenieur}{Bertrandt Ingenieurbüro GmbH}{München}{}{eingesetzt bei \textbf{MAN Truck \& Bus SE} (Engineering E/E Systems Drive Train Functions)
+\begin{itemize}
+  \item Optimierung des Einsatzes der Schaltkraftunterstützung zur Materialschonung
+\end{itemize}}
+
+%----- MAN (AP19)
+\cventry{12/2014}{Entwicklungsingenieur}{Bertrandt Ingenieurbüro GmbH}{München}{}{eingesetzt bei \textbf{MAN Truck \& Bus SE} (Engineering E/E Systems Drive Train Functions)
+\begin{itemize}
+  \item Erkennung von kritischen Situationen im ACC-Betrieb (efficientCruise)
+\end{itemize}}
+
+%----- BMW
+\cventry{05/2014 -- 04/2017}{Entwicklungsingenieur}{Bertrandt Ingenieurbüro GmbH}{München}{}{eingesetzt bei \textbf{BMW AG} (Fahrwerkselektronik)\newline{}\textbf{Anforderungserstellung und Funktionsentwicklung im Querdynamikmanagement}
+\begin{itemize}
+  \item Zentraler fachlicher Ansprechpartner gegenüber Kunden (Brückenkopf) bzgl. QDM Gewerk  
+  \item Reverseengineering von Anforderungen Ebene C und D der Signalbereitstellungsschicht (SBS)
+  \item Funktionsentwicklung einer Temperaturkompensation für das Gierratensensorsignal
+  \begin{itemize}
+    \item Konzepterstellung, Implementierung in Matlab/ Simulink und Validierung
+  \end{itemize}
+\end{itemize}}
+
+%----- BMW
+\cventry{02/2012 -- 04/2014}{Entwicklungsingenieur}{Bertrandt Ingenieurbüro GmbH}{München}{}{eingesetzt bei \textbf{BMW AG} (Fahrwerkselektronik)\newline{}\textbf{Function Owner für die Kundenfunktion Vorausschauassistent}
+\begin{itemize}
+  \item Inbetriebnahme der Kundenfunktion im Fahrzeug.
+  \item Problemmanagement
+  \item Funktionsentwicklung der Kundenfunktion Speed Limit Assist.
+\end{itemize}
+\textbf{Patent:} Miterfinder, Verzögerungsassistenzsystem in einem Kraftfahrzeug und Verfahren zur Steuerung eines entsprechenden Verzögerungsassistenzsystems, DE102015205371B4
+}
+
+%----- Gigatronik
+\cventry{09/2010 -- 01/2012}{Systemingenieur Integration Elektrik/Elektronik}{GIGATRONIK München GmbH}{München}{}{eingesetzt bei \textbf{BMW AG}\newline{}\textbf{Entwicklungs- und Serienbetreuung der E/E-Umfänge der elektrisch schwenkbaren Anhängevorrichtung und des Steuergeräts für die Ansteuerung und Überwachung der Anhängerbeleuchtung}
+\begin{itemize}
+  \item Projektplanung und -steuerung, Risikomanagement, Qualitätssicherung
+  \item Lieferantensteuerung
+  \item Anforderungsmanagement, Test- und Absicherungsplanung, Durchführung von Fehleranalysen
+  \item Integration und Inbetriebnahme von Softwareeinheiten auf Hardwarekomponenten
+  \item Betreuung eines Komponentenprüfplatzes und Durchführung von systematischen Tests zur Absicherung der Hardwarekomponenten
+  \item Schnittstellenabstimmungen mit anderen Fachbereichen 
+\end{itemize}}
+
+\section{Diplomarbeit}
+\cvitem{Titel}{\emph{Dynamische Manipulation mit dem Dual-Arm Manipulator}}
+% \cvitem{supervisors}{Supervisors}
+\cvitem{Beschreibung}{
+\begin{itemize}
+  \item Auswahl, Design und Implementierung eines Kalman Filters für das nichtlineare System zur Bestimmung der Kontaktkräfte am Endeffektor während Bewegungen. 
+  \item Trajektorienplanung für die dynamischen Manipulationen Fangen, Werfen und Dribbeln. \item Experimentelle Evaluierung und Demonstration des Fangens und Werfens mit dem Dual-Arm Manipulator.
+\end{itemize}}
+
+\section{Bachelorarbeit}
+\cvitem{Titel}{\emph{Aggregation und Aufbereitung von Lidar-Daten zur visuellen Darstellung}}
+% \cvitem{supervisors}{Supervisors}
+\cvitem{Beschreibung}{
+\begin{itemize}
+  \item Herstellung einer Ethernetverbindung zwischen einem Lidar-Sensor und einem Standard-Computer mittels eines C/C++ Programms. 
+  \item Programmierung eines Importers für ein Software-Framework zur Visualisierung der Messwerte. 
+  \item Implementierung eines Clustering Algorithmus im C/C++ Programm zur Vorverarbeitung der Messwerte für eine Personenerkennung. 
+  \item Validierung und Optimierung des Clusterings.
+\end{itemize}}
+
+\section{Studium}  % for 'contemporary' style use optional argument for displaying an icon, e.g. \section[\faGraduationCap]{Education}
+\cventry{2004 -- 2009}{Dipl.-Ing.}{Elektro- und Informationstechnik mit dem Schwerpunkt Allgemeine Mechatronik}{TU München}{\textit{1,7}}{}  % arguments 3 to 6 can be left empty
+\cventry{1995 -- 2004}{Abitur}{Hertzhaimer Gymnasium}{Trostberg}{\textit{3,1}}{}
+
+\section{Sprachkenntnisse}
+\cvitemwithcomment{Deutsch}{Muttersprache}{}
+\cvitemwithcomment{Englisch}{fließend in Wort und Schrift}{}
+
+\section{Zertifikate}
+\cvitem{ISTQB}{Certified Tester Foundation Level}
+
+\section{Patente}
+\cvitem{}{Miterfinder, \textbf{Verzögerungsassistenzsystem in einem Kraftfahrzeug und Verfahren zur Steuerung einesentsprechenden Verzögerungsassistenzsystems}, \href{https://depatisnet.dpma.de/DepatisNet/depatisnet?action=bibdat\&docid=DE102015205371B4\&zd=1\#zd}{DE102015205371B4}}
+
+% \section{Computer skills}
+% \cvdoubleitem{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
+% \cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
+% \cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+% \cvtripleitem{category 4}{XYZ}{category 5}{XYZ}{category 6}{XYZ}
+
+\section{Skill matrix}
+% \cvitem{Skill matrix}{Alternatively, provide a skill matrix to show off your skills}
+
+%% Skill matrix as an alternative to rate one's skills, computer or other.
+
+%% Adjusts width of skill matrix columns.
+%% Usage \setcvskillcolumns[<width>][<factor>][<exp_width>]
+%% <width>, <exp_width> should be lengths smaller than \textwidth, <factor> needs to be between 0 and 1.
+%% Examples:
+% \setcvskillcolumns[5em][][]%    adjust first column. Same as \setcvskillcolumns[5em]
+% \setcvskillcolumns[][0.45][]%   adjust third (skill) column. Same as \setcvskillcolumns[][0.45]
+% \setcvskillcolumns[][][\widthof{``Year''}]%     adjust fourth (years) column.
+% \setcvskillcolumns[][0.45][\widthof{``Year''}]%
+% \setcvskillcolumns[\widthof{``Languag''}][0.48][]
+% \setcvskillcolumns[\widthof{``Languag''}]%
+
+%% Adjusts width of legend columns. Usage \setcvskilllegendcolumns[<width>][<factor>]
+%% <factor> needs to be between 0 and 1. <width> should be a length smaller than \textwidth
+%% Examples:
+% \setcvskilllegendcolumns[][0.45]
+% \setcvskilllegendcolumns[\widthof{``Legend''}][0.45]
+% \setcvskilllegendcolumns[0ex][0.46]% this is usefull for the banking style
+
+%% Add a legend if you are using \cvskill{<1-5>} command or \cvskillentry
+%% Usage \cvskilllegend[*][<post_padding>][<first_level>][<second_level>][<third_level>][<fourth_level>][<fifth_level>]{<name>}
+% \cvskilllegend % insert default legend without lines
+% \cvskilllegend*[1em]{} % adjust post spacing
+% \cvskilllegend*{Legend}%  Alternatively add a description string
+%% adjust the legend entries for other languages, here German
+\cvskilllegend[0.2em][Grundkenntnisse][Grundkenntnisse und eigene Erfahrung \\ in Projekten][Umfangreiche Erfahrung in Projekten][Vertiefte Expertenkenntnisse][Experte\,/\,Spezialist]{Legende}
+
+%% Alternative legend style with the first three skill levels in one column
+%% Usage \cvskillplainlegend[*][<post_padding>][<first_level>][<second_level>][<third_level>][<fourth_level>][<fifth_level>]{<name>}
+% \setcvskilllegendcolumns[][0.6]%  works for classic, casual, banking
+% \setcvskilllegendcolumns[][0.55]%  works better for oldstyle and fancy
+% \cvskillplainlegend{}
+% \cvskillplainlegend[0.2em][Grundkenntnisse][Grundkenntnisse und eigene Erfahrung in Projekten][Umfangreiche Erfahrung in Projekten][Vertiefte Expertenkenntnisse][Experte/Guru]{Legende}
+
+%% Add a head of the skill matrix table with descriptions.
+%% Usage \cvskillhead[<post_padding>][<Level>][<Skill>][<Years>][<Comment>]%
+\cvskillhead[-0.1em]%   this inserts the standard legend in english and adjust padding
+%% Adjust head of the skill matrix for other languages
+% \cvskillhead[0.25em][Level][F\"ahigkeit][Jahre][Bemerkung]
+
+%% \cvskillentry[*][<post_padding>]{<skill_cathegory>}{<0-5>}{<skill_name>}{<years_of_experience>}{<comment>}%
+%% Example usages:
+\cvskillentry*{Anforderungs-\\management:}{3}{Doors}{>7}{}
+
+\cvskillentry*{MAN Tools:}{3}{eese}{>2}{}
+\cvskillentry{}{2}{Tevis}{2}{}
+
+\cvskillentry*{Vector Tools:}{3}{CANape}{5}{}
+\cvskillentry{}{2}{CANalyzer}{2}{}
+\cvskillentry{}{2}{CANoe}{>1}{}
+
+\cvskillentry*{Programmier-\\sprachen:}{4}{MATLAB/Simulink}{>7}{}
+\cvskillentry{}{4}{Python}{2}{ }
+\cvskillentry{}{2}{Powershell}{2}{ }
+
+\cvskillentry*{BMW Tools:}{4}{E-Sys}{9}{}
+\cvskillentry{}{4}{CARMEN}{>7}{Monitoring-Software zur Erfassung und Auswertung der Kommunikation von Fahrzeugbussystemen. Eigenentwicklung BMW.}
+\cvskillentry{}{4}{CAF Editor}{9}{}
+\cvskillentry{}{3}{SWL-Cockpit}{9}{}
+\cvskillentry{}{3}{EDIABAS}{9}{}
+
+\cvskillentry*{Continental Tools:}{3}{Matchbox}{2}{}
+\cvskillentry*{Problem-\\management:}{3}{Octane}{9}{}
+\cvskillentry*{Ethernet:}{3}{Wireshark (SOME/IP)}{2}{}
+\cvskillentry*{dSpace:}{2}{ControlDesk}{2}{}
+\cvskillentry*{Sonstiges:}{3}{Jira}{>9}{}
+\cvskillentry{}{4}{Git}{4}{}
+\cvskillentry*{OS:}{2}{Linux}{2}{}% notice the use of the starred command and the optional
+% \cvskillentry*[1em]{Methods}{4}{SCRUM}{8}{SCRUM master for 5 years}
+%% \cvskill{<0-5>} command
+% \cvitem{\textbackslash{cvskill}:}{Skills can be visually expressed by the \textbackslash{cvskill} command, e.g. \cvskill{2}}
+
+\section{Freizeit}
+\cvitem{Ultimate Frisbee}{25 Platz World Masters Ultimate Club Championship}
+\cvitem{Fahrrad}{Fahern und dran rum basteln}
+\cvitem{Kaffee}{Hab einen Siebträger an dem ich verschiedene Bohnen und neue Tools ausprobiere}
+
+% \section{Fachspezifisches Know-How}
+% \cvlistitem{Projekterfahrung im Bereich der Elektrik/Elektronik Entwicklung bei BMW}
+% \cvlistitem{Projekterfahrung im Bereich Funktionsentwicklung von Fahrerassistenzsystemen bei BMW und MAN}
+% \cvlistitem{Projekterfahrung im Bereich der Inbetriebnahme bei MAN}
+% \cvlistitem{Kenntnisse der Bussysteme (SOME/IP, FlexRay, CAN, LIN), Bordnetzarchitektur, elektrische Messtechnik}
+% \cvlistitem{Kenntnisse im Bereich Komponenten- und Systemtests sowie Testmanagement im Allgemeinen}
+% \cvlistitem{Erfahrung in der Anwendung von Anforderungs-, Test- und Problemmanagement-Tools, z.B. Octane, DOORS, Tevis, eASEE/esee bzw. Tools aus der Automobilindustrie, Mess- und Analysewerkzeuge.}
+
+% \section{Persönliche Stärken}
+% \cvlistitem{Leistungswillen}
+% \cvlistitem{Unternehmerisches Denken}
+% \cvlistitem{Teamfähigkeit}
+% \cvlistitem{Strukturiertes Arbeiten}
+
+% \section{Extra 1}
+% \cvlistitem{Item 1}
+% \cvlistitem{Item 2}
+% \cvlistitem{Item 3. This item is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+
+% \section{Extra 2}
+% \cvlistdoubleitem{Item 1}{Item 4}
+% \cvlistdoubleitem{Item 2}{Item 5\cite{book2}}
+% \cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
+
+% \section{References}
+% \begin{cvcolumns}
+%   \cvcolumn{Category 1}{\begin{itemize}\item Person 1\item Person 2\item Person 3\end{itemize}}
+%   \cvcolumn{Category 2}{Amongst others:\begin{itemize}\item Person 1, and\item Person 2\end{itemize}(more upon request)}
+%   \cvcolumn[0.5]{All the rest \& some more}{\textit{That} person, and \textbf{those} also (all available upon request).}
+% \end{cvcolumns}
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+% \nocite{*}
+% \bibliographystyle{plain}
+% \bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+\clearpage
+%-----       letter       ---------------------------------------------------------
+% recipient data
+\recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
+\date{January 01, 1984}
+\subject{Job application}
+\opening{Dear Sir or Madam,}
+\closing{Yours faithfully,}
+\signature{0.9}{signature.png}                     % optional, remove / comment the line if not wanted: first argument goes to \includegraphics > scale
+\enclosure[Attached]{curriculum vit\ae{}}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+\makelettertitle
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper neque sit amet lectus facilisis sed luctus nisl iaculis. Vivamus at neque arcu, sed tempor quam. Curabitur pharetra tincidunt tincidunt. Morbi volutpat feugiat mauris, quis tempor neque vehicula volutpat. Duis tristique justo vel massa fermentum accumsan. Mauris ante elit, feugiat vestibulum tempor eget, eleifend ac ipsum. Donec scelerisque lobortis ipsum eu vestibulum. Pellentesque vel massa at felis accumsan rhoncus.
+
+Suspendisse commodo, massa eu congue tincidunt, elit mauris pellentesque orci, cursus tempor odio nisl euismod augue. Aliquam adipiscing nibh ut odio sodales et pulvinar tortor laoreet. Mauris a accumsan ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate sem vehicula ipsum varius nec tempus dui dapibus. Phasellus et est urna, ut auctor erat. Sed tincidunt odio id odio aliquam mattis. Donec sapien nulla, feugiat eget adipiscing sit amet, lacinia ut dolor. Phasellus tincidunt, leo a fringilla consectetur, felis diam aliquam urna, vitae aliquet lectus orci nec velit. Vivamus dapibus varius blandit.
+
+Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sagittis. Ut interdum, enim varius pellentesque tincidunt, magna libero sodales tortor, ut fermentum nunc metus a ante. Vivamus odio leo, tincidunt eu luctus ut, sollicitudin sit amet metus. Nunc sed orci lectus. Ut sodales magna sed velit volutpat sit amet pulvinar diam venenatis.
+
+Albert Einstein discovered that $e=mc^2$ in 1905.
+
+\[ e=\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \]
+
+\makeletterclosing
+
+%\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\end{document}
+
+
+%% end of file `template.tex'.
